@@ -1,122 +1,112 @@
-const colors = ["#8649D1", "#2D818C", "#E0CB80", "#FCC705","#2F646B"];
+//const colors = ["#8649D1", "#2D818C", "#E0CB80", "#FCC705","#2F646B"];
+
+var cnv;
+
+// let myFont;
+// function preload() {
+//   myFont = loadFont('assets/inconsolata.otf');
+// }
 
 function setup() {
-  createCanvas(1000,1000);
-  rectMode(CENTER)
-  angleMode(DEGREES);
-  grid1();
-  noStroke();
+  cnv = createCanvas(500, 500, WEBGL);
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  centerCanvas();
+  cnv.position(x, y);
+  // Move the canvas so it’s inside our <div id="sketch-holder">.
+  cnv.parent('sketch-holder');
+  background(255, 0, 200);
+  background(255, 0, 200);
+  predictionchooser();
+}
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
+
+function windowResized() {
+  centerCanvas();
 }
 
 function mousePressed() {
-  grid1();
+  predictionchooser();
+}
+// function keyPressed() {
+//   saveCanvas('sweets', 'jpg');
+// }
+
+//In the future there will be
+function ITFTWB() {
+  text('We will use bananas as cars', 10, 30);
 }
 
-function keyPressed() {
-  saveCanvas('sweets', 'jpg');
-}
-
-function hexagon (posX, posY, radius) {
-  const rotAngle = 360 / 6
-  beginShape()
-  for (let i = 0; i < 6; i++) {
-    const thisVertex = pointOnCircle(posX, posY, radius, i * rotAngle)
-    vertex(thisVertex.x, thisVertex.y)
-  }
-  endShape(CLOSE)
-}
-
-function diamond (posX, posY, radius) {
-  const rotAngle = 360 / 4
-  beginShape()
-  for (let i = 0; i < 6; i++) {
-    const thisVertex = pointOnCircle(posX, posY, radius, i * rotAngle)
-    vertex(thisVertex.x, thisVertex.y)
-  }
-  endShape(CLOSE)
+//In the future word
+function ITFTW() {
+  text('There will be a word addfedf to mean love', 10, 30);
 }
 
 
-function pointOnCircle (posX, posY, radius, angle) {
-  const x = posX + radius * cos(angle)
-  const y = posY + radius * sin(angle)
-  return createVector(x, y)
-}
+function predictionchooser() {
+//  background(240);
+  backgroundanimation()
+  let r = random(5);
 
+  if (r < 1) {
+    ITFTW()
+  } else if (r < 2) {
+    ITFTWB()
+  } else if (r < 3) {
+    push()
+    pop()
+  } else if (r < 4) {
 
-function grid1() {
-  background(240);
-  let w = 30;
-  let h = w;
+  } else {
 
-  for (let x = 140; x <= 850 + w; x += w) { // columns
-    for (let y = 140; y <= 850 + h; y += h) { // rows
-      //strokeWeight(4);
-      tsize = 25
-      let r = random(5);
-
-      if (r < 1) {
-        push()
-        noStroke();
-        fill(colors[Math.floor(Math.random() * colors.length)])
-        //hexagon(x, y, tsize/2)
-        rect(x, y, tsize)
-        fill(colors[Math.floor(Math.random() * colors.length)])
-        rect(x, y, tsize/2)
-        pop()
-      } else if (r < 2) {
-        push()
-        noStroke();
-        fill(colors[Math.floor(Math.random() * colors.length)])
-        //hexagon(x, y, tsize/2)
-        rect(x, y, tsize)
-        fill(colors[Math.floor(Math.random() * colors.length)])
-        rect(x, y, tsize/2)
-        pop()
-      } else if (r < 3) {
-        push()
-        noStroke();
-        fill(colors[Math.floor(Math.random() * colors.length)])
-        //hexagon(x, y, tsize/2)
-        rect(x, y, tsize)
-        fill(colors[Math.floor(Math.random() * colors.length)])
-         diamond(x, y, tsize/2)
-        pop()
-      } else if (r < 4) {
-        push()
-        noStroke();
-        let picker = random(2);
-        if (picker > 1) {
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          //hexagon(x, y, tsize/2)
-          rect(x, y, tsize)
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          ellipse(x, y, tsize/2)
-        } else {
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          // diamond(x, y, tsize/2)
-          rect(x, y, tsize)
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          hexagon(x, y, tsize/3)
-        }
-        pop()
-      } else {
-        push()
-        noStroke();
-        let picker = random(2);
-        if (picker > 1) {
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          rect(x, y, tsize)
-        } else {
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          rect(x, y, tsize)
-          fill(colors[Math.floor(Math.random() * colors.length)])
-          ellipse(x, y, tsize/2)
-        }
-        pop()
-      }
-
-    }
   }
 
+}
+
+function backgroundanimation() {
+  translate(-240, -100, 0);
+  normalMaterial();
+  push();
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  plane(70);
+  pop();
+
+  translate(240, 0, 0);
+  push();
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  box(70, 70, 70);
+  pop();
+
+  translate(240, 0, 0);
+  push();
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  cylinder(70, 70);
+  pop();
+
+  translate(-240 * 2, 200, 0);
+  push();
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  cone(70, 70);
+  pop();
+
+  translate(240, 0, 0);
+  push();
+  rotateZ(frameCount * 0.01);
+  rotateX(frameCount * 0.01);
+  rotateY(frameCount * 0.01);
+  torus(70, 20);
+  pop();
 }
