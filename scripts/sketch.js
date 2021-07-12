@@ -1,22 +1,16 @@
-//const colors = ["#8649D1", "#2D818C", "#E0CB80", "#FCC705","#2F646B"];
-
 var cnv;
+let myFont;
 
-// let myFont;
-// function preload() {
-//   myFont = loadFont('assets/inconsolata.otf');
-// }
+function preload() {
+  myFont = loadFont('assets/Aileron-BlackItalic.otf');
+}
 
 function setup() {
   cnv = createCanvas(500, 500, WEBGL);
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
   centerCanvas();
-  cnv.position(x, y);
   // Move the canvas so it’s inside our <div id="sketch-holder">.
   cnv.parent('sketch-holder');
-  background(255, 0, 200);
-  background(255, 0, 200);
+  textFont(myFont);
   predictionchooser();
 }
 
@@ -32,6 +26,7 @@ function windowResized() {
 
 function mousePressed() {
   predictionchooser();
+  console.log(mouseX);
 }
 // function keyPressed() {
 //   saveCanvas('sweets', 'jpg');
@@ -39,18 +34,29 @@ function mousePressed() {
 
 //In the future there will be
 function ITFTWB() {
-  text('We will use bananas as cars', 10, 30);
+  translate(-240, -100, 0);
+  textFont(myFont);
+  text('We will use bananas as cars', 0, 0);
 }
 
 //In the future word
 function ITFTW() {
-  text('There will be a word addfedf to mean love', 10, 30);
+  translate(-240, -100, 0);
+  textFont(myFont);
+  text('There will be a word addfedf to mean love', 0, 0);
+}
+
+//In the future word
+function CCV() {
+  translate(-240, -100, 0);
+  textFont(myFont);
+  text('One bitcoin will be worth 5000', 0, 0);
 }
 
 
 function predictionchooser() {
-//  background(240);
-  backgroundanimation()
+ background(30);
+//backgroundanimation()
   let r = random(5);
 
   if (r < 1) {
@@ -58,8 +64,7 @@ function predictionchooser() {
   } else if (r < 2) {
     ITFTWB()
   } else if (r < 3) {
-    push()
-    pop()
+    CCV()
   } else if (r < 4) {
 
   } else {
@@ -68,45 +73,45 @@ function predictionchooser() {
 
 }
 
-function backgroundanimation() {
-  translate(-240, -100, 0);
-  normalMaterial();
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  plane(70);
-  pop();
-
-  translate(240, 0, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  box(70, 70, 70);
-  pop();
-
-  translate(240, 0, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  cylinder(70, 70);
-  pop();
-
-  translate(-240 * 2, 200, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  cone(70, 70);
-  pop();
-
-  translate(240, 0, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  torus(70, 20);
-  pop();
-}
+// function backgroundanimation() {
+//   translate(-240, -100, 0);
+//   normalMaterial();
+//   push();
+//   rotateZ(frameCount * 0.01);
+//   rotateX(frameCount * 0.01);
+//   rotateY(frameCount * 0.01);
+//   plane(70);
+//   pop();
+//
+//   translate(240, 0, 0);
+//   push();
+//   rotateZ(frameCount * 0.01);
+//   rotateX(frameCount * 0.01);
+//   rotateY(frameCount * 0.01);
+//   box(70, 70, 70);
+//   pop();
+//
+//   translate(240, 0, 0);
+//   push();
+//   rotateZ(frameCount * 0.01);
+//   rotateX(frameCount * 0.01);
+//   rotateY(frameCount * 0.01);
+//   cylinder(70, 70);
+//   pop();
+//
+//   translate(-240 * 2, 200, 0);
+//   push();
+//   rotateZ(frameCount * 0.01);
+//   rotateX(frameCount * 0.01);
+//   rotateY(frameCount * 0.01);
+//   cone(70, 70);
+//   pop();
+//
+//   translate(240, 0, 0);
+//   push();
+//   rotateZ(frameCount * 0.01);
+//   rotateX(frameCount * 0.01);
+//   rotateY(frameCount * 0.01);
+//   torus(70, 20);
+//   pop();
+// }
