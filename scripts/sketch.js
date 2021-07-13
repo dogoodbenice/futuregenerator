@@ -1,4 +1,5 @@
 var cnv;
+var predictions
 let myFont;
 
 function preload() {
@@ -6,7 +7,7 @@ function preload() {
 }
 
 function setup() {
-  cnv = createCanvas(1500, 1500, WEBGL);
+  cnv = createCanvas(windowWidth, windowHeight, WEBGL);
   centerCanvas();
   // Move the canvas so it’s inside our <div id="sketch-holder">.
   cnv.parent('sketch-holder');
@@ -15,7 +16,9 @@ function setup() {
 }
 
 function draw() {
-
+  background('grey')
+  backgroundanimation()
+  console.log(predictions);
 }
 
 function centerCanvas() {
@@ -30,8 +33,9 @@ function windowResized() {
 
 function mousePressed() {
   predictionchooser();
-  console.log(mouseX);
+  //console.log(mouseX);
 }
+
 // function keyPressed() {
 //   saveCanvas('sweets', 'jpg');
 // }
@@ -45,35 +49,33 @@ function ITFTWB() {
 
 //In the future word
 function ITFTW() {
-  //translate(-240, -100, 0);
+  push()
+  translate(-240, (windowHeight - height) / 2, 0);
   textFont(myFont);
   text('There will be a word addfedf to mean love', 0, 0);
+  pop()
 }
 
 //In the future word
 function CCV() {
-
   push()
-  translate(-240, -100, 0);
+  translate(-240, (windowHeight - height) / 2, 0);
   textFont(myFont);
-  text('One bitcoin will be worth'+random(0,50000)+' pounds', 0, 0);
+  text('One bitcoin will be worth ' + random(0, 50000) + ' pounds', 0, 0);
   pop()
 }
 
 
 function predictionchooser() {
- background('grey');
- backgroundanimation()
-  let r = random(5);
-
-  if (r < 1) {
+  var predictions = random(5);
+  if (predictions < 1) {
     CCV()
-  } else if (r < 2) {
+  } else if (predictions < 2) {
+    ITFTW()
+  } else if (predictions < 3) {
     CCV()
-  } else if (r < 3) {
-    CCV()
-  } else if (r < 4) {
-    CCV()
+  } else if (predictions < 4) {
+    ITFTW()
   } else {
     CCV()
   }
