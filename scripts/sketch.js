@@ -62,7 +62,7 @@ function CCV() {
 
 
 function predictionchooser() {
-  background(grey)
+  background('grey')
   let r = random(5);
   if (r < 1) {
     CCV()
