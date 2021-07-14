@@ -1,5 +1,5 @@
 var cnv;
-var predictions
+var prediction
 let myFont;
 
 function preload() {
@@ -15,11 +15,6 @@ function setup() {
   predictionchooser();
 }
 
-function draw() {
-  background('grey')
-  backgroundanimation()
-  console.log(predictions);
-}
 
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
@@ -44,7 +39,7 @@ function mousePressed() {
 function ITFTWB() {
   //translate(-240, -100, 0);
   textFont(myFont);
-  text('We will use bananas as cars', 0, 0);
+  prediction = text('We will use bananas as cars', 0, 0);
 }
 
 //In the future word
@@ -52,7 +47,7 @@ function ITFTW() {
   push()
   translate(-240, (windowHeight - height) / 2, 0);
   textFont(myFont);
-  text('There will be a word addfedf to mean love', 0, 0);
+  prediction = text('There will be a word addfedf to mean love', 0, 0);
   pop()
 }
 
@@ -61,25 +56,25 @@ function CCV() {
   push()
   translate(-240, (windowHeight - height) / 2, 0);
   textFont(myFont);
-  text('One bitcoin will be worth ' + random(0, 50000) + ' pounds', 0, 0);
+  prediction = text('One bitcoin will be worth ' + random(0, 50000) + ' pounds', 0, 0);
   pop()
 }
 
 
 function predictionchooser() {
-  var predictions = random(5);
-  if (predictions < 1) {
+  background(grey)
+  let r = random(5);
+  if (r < 1) {
     CCV()
-  } else if (predictions < 2) {
-    ITFTW()
-  } else if (predictions < 3) {
+  } else if (r < 2) {
+    ITFTWB()
+  } else if (r < 3) {
     CCV()
-  } else if (predictions < 4) {
+  } else if (r < 4) {
     ITFTW()
   } else {
     CCV()
   }
-
 }
 
 function backgroundanimation() {
