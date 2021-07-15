@@ -47,16 +47,17 @@ function windowResized() {
 
 function mousePressed() {
   setup()
-  console.log(mouseX);
+  console.log((windowWidth - width) / 2);
 }
 
 //In the future there will be
 function ITFTWB() {
   push()
   textSize(fontSize);
+  rectMode(CENTER)
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('We will use bananas as cars', 0, 0);
+  prediction = text('We will use bananas as cars', (windowWidth - width) / 2, 0, windowWidth/3);
   pop()
 }
 
@@ -66,7 +67,7 @@ function ITFTW() {
   textSize(fontSize);
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('There will be a word addfedf to mean love', 0, 0);
+  prediction = text('There will be a word addfedf to mean love', (windowWidth - width) / 2, 0, windowWidth/3);
   pop()
 }
 
@@ -76,7 +77,7 @@ function CCV() {
   textSize(fontSize);
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('One '+ cryptocurrencies[Math.floor(Math.random() * cryptocurrencies.length)] + ' will be worth ' + int(random(1,5000)) + ' '+ fiat[Math.floor(Math.random() * fiat.length)], 0, 0);
+  prediction = text('One '+ cryptocurrencies[Math.floor(Math.random() * cryptocurrencies.length)] + ' will be worth ' + int(random(1,5000)) + ' '+ fiat[Math.floor(Math.random() * fiat.length)], (windowWidth - width) / 2, 0, windowWidth/3);
   pop()
 }
 
@@ -86,7 +87,7 @@ function futureobjects() {
   textSize(fontSize);
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('In the future we will use ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)] + ' as ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)], 0, 0);
+  prediction = text('In the future we will use ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)] + ' as ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)], (windowWidth - width) / 2, 0, windowWidth/3);
   pop()
 }
 
