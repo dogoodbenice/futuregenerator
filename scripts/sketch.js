@@ -1,7 +1,6 @@
 var cnv;
 var prediction
-let myFont;
-let input, fbutton, sbutton;
+let myFont, fbutton, sbutton;
 
 function preload() {
   myFont = loadFont('assets/Aileron-BlackItalic.otf');
@@ -20,15 +19,15 @@ function setup() {
 }
 
 function showmethefuturebutton() {
-  fbutton = createButton('submit');
-  fbutton.position((windowWidth) / 2, ((windowHeight) / 2)+50);
+  fbutton = createButton('SHOW ME THE FUTURE');
+  fbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5)+50);
   fbutton.mousePressed(setup);
 }
 
 function saveprediction() {
-  sbutton = createButton('save');
-  sbutton.position((windowWidth) / 2, ((windowHeight) / 2)+100);
-  sbutton.mousePressed(saveCanvas('thefuture', 'jpg'));
+  sbutton = createButton('SAVE MY PREDICTION');
+  sbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5)+100);
+  //sbutton.mousePressed(saveCanvas('thefuture', 'jpg'));
 }
 
 function centerCanvas() {
@@ -47,9 +46,11 @@ function mousePressed() {
 
 //In the future there will be
 function ITFTWB() {
-  //translate(-240, -100, 0);
+  push()
+  translate(-240, (windowHeight - height) / 2, 0);
   textFont(myFont);
   prediction = text('We will use bananas as cars', 0, 0);
+  pop()
 }
 
 //In the future word
@@ -70,7 +71,6 @@ function CCV() {
   pop()
 }
 
-
 function predictionchooser() {
   background('black')
   let r = random(5);
@@ -88,50 +88,55 @@ function predictionchooser() {
 }
 
 function backgroundshapes() {
-  for (var i = 0; i < 15; i++) {
+  //generates our funky shapes for the backdrop
+  for (var i = 0; i < 3; i++) {
+    normalMaterial();
     push()
       translate(random(-500,500), random(-200,200), random(-100,100));
-      normalMaterial();
-      rotateZ(random(1,50) * 0.01);
-      rotateX(random(1,50) * 0.01);
-      rotateY(random(1,50) * 0.01);
+      rotateZ(random(1,360) * 0.01);
+      rotateX(random(1,360) * 0.01);
+      rotateY(random(1,360) * 0.01);
       torus(random(10,100), 20);
     pop();
+    push();
+    translate(random(-500,500), random(-200,200), random(-100,100));
+    rotateZ(random(1,360) * 0.01);
+    rotateX(random(1,360) * 0.01);
+    rotateY(random(1,360) * 0.01);
+    plane(random(10,70));
+    pop();
+    push()
+    translate(random(-500,500), random(-200,200), random(-100,100));
+    sphere(random(10,50));
+    pop();
+    push();
+    translate(random(-500,500), random(-200,200), random(-100,100));
+    rotateZ(random(1,360));
+    rotateX(random(1,360) * 0.01);
+    rotateY(random(1,360) * 0.01);
+    box(random(10,70));
+    pop();
+    push();
+    translate(random(-500,500), random(-200,200), random(-100,100));
+    rotateZ(random(1,360) * 0.01);
+    rotateX(random(1,360) * 0.01);
+    rotateY(random(1,360) * 0.01);
+    cylinder(random(10,70));
+    pop();
+    push();
+    translate(random(-500,500), random(-200,200), random(-100,100));
+    rotateZ(random(1,360) * 0.01);
+    rotateX(random(1,360) * 0.01);
+    rotateY(random(1,360) * 0.01);
+    cone(random(10,70));
+    pop();
   }
-  // push()
-  // translate(-240, -100, 0);
-  // normalMaterial();
-  // push();
-  // rotateZ(frameCount * 0.01);
-  // rotateX(frameCount * 0.01);
-  // rotateY(frameCount * 0.01);
-  // plane(70);
-  // pop();
-  //
-  // translate(240, 0, 0);
-  // push();
-  // rotateZ(frameCount * 0.01);
-  // rotateX(frameCount * 0.01);
-  // rotateY(frameCount * 0.01);
-  // box(70, 70, 70);
-  // pop();
-  //
-  // translate(240, 0, 0);
-  // push();
-  // rotateZ(frameCount * 0.01);
-  // rotateX(frameCount * 0.01);
-  // rotateY(frameCount * 0.01);
-  // cylinder(70, 70);
-  // pop();
-  //
-  // translate(-240 * 2, 200, 0);
-  // push();
-  // rotateZ(frameCount * 0.01);
-  // rotateX(frameCount * 0.01);
-  // rotateY(frameCount * 0.01);
-  // cone(70, 70);
-  // pop();
-  //
-  //
-  // pop();
+  //generates our space dots for the backdrop
+  for (var i = 0; i < 100; i++) {
+    push()
+      stroke(255)
+      strokeWeight(2)
+      ellipse(random(-1000,1000),random(-500,500),2)
+    pop();
+  }
 }
