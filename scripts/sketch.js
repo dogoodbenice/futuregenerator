@@ -1,6 +1,7 @@
 var cnv;
 var prediction
 let myFont;
+let input, fbutton, sbutton;
 
 function preload() {
   myFont = loadFont('assets/Aileron-BlackItalic.otf');
@@ -13,8 +14,22 @@ function setup() {
   cnv.parent('sketch-holder');
   textFont(myFont);
   predictionchooser();
+  backgroundshapes();
+  showmethefuturebutton();
+  saveprediction();
 }
 
+function showmethefuturebutton() {
+  fbutton = createButton('submit');
+  fbutton.position((windowWidth) / 2, ((windowHeight) / 2)+50);
+  fbutton.mousePressed(setup);
+}
+
+function saveprediction() {
+  sbutton = createButton('save');
+  sbutton.position((windowWidth) / 2, ((windowHeight) / 2)+100);
+  sbutton.mousePressed(saveCanvas('thefuture', 'jpg'));
+}
 
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
@@ -27,13 +42,8 @@ function windowResized() {
 }
 
 function mousePressed() {
-  predictionchooser();
-  //console.log(mouseX);
+  setup()
 }
-
-// function keyPressed() {
-//   saveCanvas('sweets', 'jpg');
-// }
 
 //In the future there will be
 function ITFTWB() {
@@ -62,7 +72,7 @@ function CCV() {
 
 
 function predictionchooser() {
-  background('grey')
+  background('black')
   let r = random(5);
   if (r < 1) {
     CCV()
@@ -77,47 +87,51 @@ function predictionchooser() {
   }
 }
 
-function backgroundanimation() {
-  push()
-  translate(-240, -100, 0);
-  normalMaterial();
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  plane(70);
-  pop();
-
-  translate(240, 0, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  box(70, 70, 70);
-  pop();
-
-  translate(240, 0, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  cylinder(70, 70);
-  pop();
-
-  translate(-240 * 2, 200, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  cone(70, 70);
-  pop();
-
-  translate(240, 0, 0);
-  push();
-  rotateZ(frameCount * 0.01);
-  rotateX(frameCount * 0.01);
-  rotateY(frameCount * 0.01);
-  torus(70, 20);
-  pop();
-  pop();
+function backgroundshapes() {
+  for (var i = 0; i < 15; i++) {
+    push()
+      translate(random(-500,500), random(-200,200), random(-100,100));
+      normalMaterial();
+      rotateZ(random(1,50) * 0.01);
+      rotateX(random(1,50) * 0.01);
+      rotateY(random(1,50) * 0.01);
+      torus(random(10,100), 20);
+    pop();
+  }
+  // push()
+  // translate(-240, -100, 0);
+  // normalMaterial();
+  // push();
+  // rotateZ(frameCount * 0.01);
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
+  // plane(70);
+  // pop();
+  //
+  // translate(240, 0, 0);
+  // push();
+  // rotateZ(frameCount * 0.01);
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
+  // box(70, 70, 70);
+  // pop();
+  //
+  // translate(240, 0, 0);
+  // push();
+  // rotateZ(frameCount * 0.01);
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
+  // cylinder(70, 70);
+  // pop();
+  //
+  // translate(-240 * 2, 200, 0);
+  // push();
+  // rotateZ(frameCount * 0.01);
+  // rotateX(frameCount * 0.01);
+  // rotateY(frameCount * 0.01);
+  // cone(70, 70);
+  // pop();
+  //
+  //
+  // pop();
 }
