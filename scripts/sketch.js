@@ -1,7 +1,8 @@
 var cnv;
 var prediction
-let myFont, fbutton, sbutton;
+let myFont, fbutton, sbutton, abutton;
 let fontSize = 25;
+let buttonSpace = 50;
 
 let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots"];
 let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoin","Litecoin","Dai","Filecoin","Stellar","Solana","VeChain"];
@@ -20,18 +21,18 @@ function setup() {
   predictionchooser();
   backgroundshapes();
   showmethefuturebutton();
-  saveprediction();
+  savepredictionbutton();
 }
 
 function showmethefuturebutton() {
   fbutton = createButton('SHOW ME THE FUTURE');
-  fbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + 50);
+  fbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + buttonSpace);
   fbutton.mousePressed(setup);
 }
 
-function saveprediction() {
+function savepredictionbutton() {
   sbutton = createButton('SAVE MY PREDICTION');
-  sbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + 100);
+  sbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + buttonSpace*1.6);
   //sbutton.mousePressed(saveCanvas('thefuture', 'jpg'));
 }
 
@@ -45,9 +46,12 @@ function windowResized() {
   centerCanvas();
 }
 
-function mousePressed() {
-  setup()
-  console.log((windowWidth - width) / 2);
+function draw() {
+  //showmethefuturebutton();
+  //savepredictionbutton();
+  //aboutbutton();
+  //backgroundshapes();
+  camera(0, 0, 20 + sin(frameCount * 0.01) * 10, 0, 10, 0, 0, 1, 0);
 }
 
 //In the future there will be
@@ -109,7 +113,7 @@ function predictionchooser() {
 
 function backgroundshapes() {
   //generates funky shapes for the backdrop top
-  for (var i = 0; i < 2; i++) {
+  for (let i = 0; i < 5; i++) {
     normalMaterial();
     push()
     translate(random(-700, 700), random(-400, -80), random(-100, 100));
@@ -145,7 +149,7 @@ function backgroundshapes() {
     pop();
   }
   //generates funky shapes for the backdrop bottom
-  for (var i = 0; i < 2; i++) {
+  for (let i = 0; i < 5; i++) {
     normalMaterial();
     push()
     translate(random(-600, 600), random(100, 250), random(-100, 100));
@@ -182,7 +186,7 @@ function backgroundshapes() {
   }
 
   //generates space like dots for the backdrop
-  for (var i = 0; i < 100; i++) {
+  for (let i = 0; i < 100; i++) {
     push()
     stroke(255)
     strokeWeight(2)
