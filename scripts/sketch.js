@@ -1,10 +1,12 @@
-let cnv;
-let prediction
-let myFont, fbutton, sbutton, abutton;
+let cnv, prediction, myFont, fbutton, sbutton, abutton;
 let fontSize = 22;
 let buttonSpace = 50;
+let texposX = 0;
+let texposY = -25;
+let texspace = 250;
 
-let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots"];
+
+let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots","trains","footballs","stadiums",""];
 let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoin","Litecoin","Dai","Filecoin","Stellar","Solana","VeChain"];
 let fiat = ["British Pounds","Canadian Dollars", "Euros"]
 
@@ -15,6 +17,7 @@ function preload() {
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight, WEBGL);
   centerCanvas();
+  rectMode(CENTER)
   // Move the canvas so it’s inside our <div id="sketch-holder">.
   cnv.parent('sketch-holder');
   textFont(myFont);
@@ -25,7 +28,7 @@ function setup() {
 }
 
 function showmethefuturebutton() {
-  fbutton = createButton('SHOW ME THE FUTURE');
+  fbutton = createButton(' '+'SHOW ME THE FUTURE  ');
   fbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + buttonSpace);
   fbutton.mousePressed(setup);
 }
@@ -33,12 +36,12 @@ function showmethefuturebutton() {
 function savepredictionbutton() {
   sbutton = createButton('SAVE MY PREDICTION');
   sbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + buttonSpace*1.6);
-  //sbutton.mousePressed(saveCanvas('thefuture', 'jpg'));
+  sbutton.mousePressed(saveCanvas('thefuture', 'jpg'));
 }
 
 function centerCanvas() {
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
+  let x = (windowWidth - width) / 2;
+  let y = (windowHeight - height) / 2;
   cnv.position(x, y);
 }
 
@@ -46,22 +49,13 @@ function windowResized() {
   centerCanvas();
 }
 
-function draw() {
-  //showmethefuturebutton();
-  //savepredictionbutton();
-  //aboutbutton();
-  //backgroundshapes();
-  camera(0, 0, 20 + sin(frameCount * 0.01) * 10, 0, 10, 0, 0, 1, 0);
-}
-
 //In the future there will be
 function ITFTWB() {
   push()
   textSize(fontSize);
-  rectMode(CENTER)
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('We will use bananas as cars', (windowWidth) / 2, 0, windowWidth/3);
+  prediction = text('In the future we will replace ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)] + ' with ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)], texposX, texposY, texspace)
   pop()
 }
 
@@ -71,7 +65,7 @@ function ITFTW() {
   textSize(fontSize);
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('There will be a word addfedf to mean love', (windowWidth) / 2, 0, windowWidth/3);
+  prediction = text('There will be a word addfedf to mean love', texposX, texposY, texspace);
   pop()
 }
 
@@ -81,7 +75,7 @@ function CCV() {
   textSize(fontSize);
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('One '+ cryptocurrencies[Math.floor(Math.random() * cryptocurrencies.length)] + ' will be worth ' + int(random(1,5000)) + ' '+ fiat[Math.floor(Math.random() * fiat.length)], (windowWidth) / 2, 0, windowWidth/3);
+  prediction = text('One '+ cryptocurrencies[Math.floor(Math.random() * cryptocurrencies.length)] + ' will be worth ' + int(random(1,5000)) + ' '+ fiat[Math.floor(Math.random() * fiat.length)], texposX, texposY, texspace);
   pop()
 }
 
@@ -91,7 +85,7 @@ function futureobjects() {
   textSize(fontSize);
   textAlign(CENTER, CENTER);
   textFont(myFont);
-  prediction = text('In the future we will use ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)] + ' as ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)], (windowWidth) / 2, 0, windowWidth/3);
+  prediction = text('In the future we will use ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)] + ' as ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)], texposX, texposY, texspace);
   pop()
 }
 
@@ -99,15 +93,15 @@ function predictionchooser() {
   background('black')
   let r = random(5);
   if (r < 1) {
-    CCV()
+    ITFTWB()
   } else if (r < 2) {
-    CCV()
+    ITFTW()
   } else if (r < 3) {
-    futureobjects()
+    CCV()
   } else if (r < 4) {
     futureobjects()
   } else {
-    CCV()
+    ITFTWB()
   }
 }
 
@@ -116,7 +110,7 @@ function backgroundshapes() {
   for (let i = 0; i < 5; i++) {
     normalMaterial();
     push()
-    translate(random(-700, 700), random(-400, -80), random(-100, 100));
+    translate(random(-700, 700), random(-500, -120), random(-100, 100));
     rotateZ(random(1, 360) * 0.01);
     rotateX(random(1, 360) * 0.01);
     rotateY(random(1, 360) * 0.01);
@@ -134,7 +128,7 @@ function backgroundshapes() {
     box(random(10, 70));
     pop();
     push();
-    translate(random(-500, 500), random(-400, -80), random(-100, 100));
+    translate(random(-500, 500), random(-400, -120), random(-100, 100));
     rotateZ(random(1, 360) * 0.01);
     rotateX(random(1, 360) * 0.01);
     rotateY(random(1, 360) * 0.01);
@@ -152,7 +146,7 @@ function backgroundshapes() {
   for (let i = 0; i < 5; i++) {
     normalMaterial();
     push()
-    translate(random(-600, 600), random(100, 250), random(-100, 100));
+    translate(random(-600, 600), random(150, 500), random(-100, 100));
     rotateZ(random(1, 360) * 0.01);
     rotateX(random(1, 360) * 0.01);
     rotateY(random(1, 360) * 0.01);
