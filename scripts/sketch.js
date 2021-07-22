@@ -6,9 +6,11 @@ let texposY = -25;
 let texspace = 250;
 
 
-let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots","trains","footballs","stadiums",""];
+let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots","trains","footballs","stadiums","sandals"];
 let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoin","Litecoin","Dai","Filecoin","Stellar","Solana","VeChain"];
 let fiat = ["British Pounds","Canadian Dollars", "Euros"]
+let planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune"]
+let feelings = ["hapiness","sadness","envy","hate","love","lust","content",""]
 
 function preload() {
   myFont = loadFont('assets/Aileron-BlackItalic.otf');
@@ -29,7 +31,7 @@ function setup() {
 
 function showmethefuturebutton() {
   fbutton = createButton(' '+'SHOW ME THE FUTURE  ');
-  fbutton.position((windowWidth) / 2.25, ((windowHeight) / 1.5) + buttonSpace);
+  fbutton.position(width/2.3, ((windowHeight) / 1.5));
   fbutton.mousePressed(setup);
 }
 
@@ -49,7 +51,7 @@ function windowResized() {
   centerCanvas();
 }
 
-//In the future there will be
+//In the future we will replace
 function ITFTWB() {
   push()
   textSize(fontSize);
@@ -66,6 +68,16 @@ function ITFTW() {
   textAlign(CENTER, CENTER);
   textFont(myFont);
   prediction = text('There will be a word addfedf to mean love', texposX, texposY, texspace);
+  pop()
+}
+
+//In the future we will find
+function ITFTWWF() {
+  push()
+  textSize(fontSize);
+  textAlign(CENTER, CENTER);
+  textFont(myFont);
+  prediction = text('In the future we will find ' + pluralobjects[Math.floor(Math.random() * pluralobjects.length)]+ ' on ' + planets[Math.floor(Math.random() * planets.length)], texposX, texposY, texspace);
   pop()
 }
 
@@ -101,7 +113,7 @@ function predictionchooser() {
   } else if (r < 4) {
     futureobjects()
   } else {
-    ITFTWB()
+    ITFTWWF()
   }
 }
 
@@ -180,11 +192,11 @@ function backgroundshapes() {
   }
 
   //generates space like dots for the backdrop
-  for (let i = 0; i < 100; i++) {
+  for (let i = 0; i < 500; i++) {
     push()
     stroke(255)
     strokeWeight(2)
-    ellipse(random(-1000, 1000), random(-500, 500), 2)
+    point(random(-1000, 1000), random(-500, 500))
     pop();
   }
 }
