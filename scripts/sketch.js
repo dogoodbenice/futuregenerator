@@ -30,7 +30,7 @@ function setup() {
 }
 
 function showmethefuturebutton() {
-  fbutton = createButton(' '+'SHOW ME THE FUTURE  ');
+  fbutton = createButton('🔮 '+'SHOW ME THE FUTURE  ');
   fbutton.position(width/2.3, ((windowHeight) / 1.5));
   fbutton.mousePressed(setup);
 }
