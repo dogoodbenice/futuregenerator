@@ -1,4 +1,4 @@
-let cnv, prediction, myFont, fbutton, sbutton, abutton;
+let cnv, prediction, myFont, fbutton, start, abutton;
 let fontSize = 22;
 let buttonSpace = 50;
 let texposX = 0;
@@ -25,14 +25,15 @@ function setup() {
   textFont(myFont);
   predictionchooser();
   backgroundshapes();
-  showmethefuturebutton();
-  //savepredictionbutton();
+  //showmethefuturebutton();
+  //savepredictionbutton()
+  start = select("#start");
+  start.mousePressed(setup);
 }
 
 function showmethefuturebutton() {
-  fbutton = createButton('🔮 '+'SHOW ME THE FUTURE  '+' 🔮 ');
-  fbutton.position(width/2.3, ((windowHeight) / 1.5));
-  fbutton.mousePressed(setup);
+  start = select("#start");
+  start.mousePressed(setup);
 }
 
 function savepredictionbutton() {
