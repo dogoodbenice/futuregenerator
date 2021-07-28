@@ -5,7 +5,6 @@ let texposX = 0;
 let texposY = -25;
 let texspace = 250;
 
-
 let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots","trains","footballs","stadiums","sandals"];
 let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoin","Litecoin","Dai","Filecoin","Stellar","Solana","VeChain"];
 let fiat = ["British Pounds","Canadian Dollars", "Euros"]
@@ -25,10 +24,8 @@ function setup() {
   textFont(myFont);
   predictionchooser();
   backgroundshapes();
-  //showmethefuturebutton();
+  showmethefuturebutton();
   //savepredictionbutton()
-  start = select("#start");
-  start.mousePressed(setup);
 }
 
 function showmethefuturebutton() {
