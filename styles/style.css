@@ -1,41 +1,57 @@
-/* style.css */
 
 html, body {
   height: 100%;
 }
 
 body {
-  /*margin: 10; */
-  display: flex;
   background-color: black;
-  /* This centers our sketch horizontally. */
-    /*  justify-content: center;
-
-  /* This centers our sketch vertically. */
-  /*align-items: center;*/
 }
 
+.button-container{
+  display: flex;
+  justify-content: center;
+}
 
-/* CSS */
-button {
+#showmethefuturebutton {
   align-items: center;
   background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
   border: 0;
-  border-radius: 10px;
-  /*box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;*/
+  border-radius: 5px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
   box-sizing: border-box;
   color: #FFFFFF;
   display: flex;
   position: absolute;
   top: 60%;
   text-align: center;
-  /* font-family: Phantomsans, sans-serif; */
   font-size: 15px;
   justify-content: center;
-  line-height: 1.5em;
-  max-width: 150%;
+  line-height: 1.2em;
   min-width: 140px;
-  padding: 8px;
+  padding: 10px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+#savemypredicition {
+  align-items: center;
+  border: 0;
+  border-radius: 5px;
+  color: blue;
+  display: flex;
+  position: absolute;
+  top: 68%;
+  text-align: center;
+  font-size: 11px;
+  justify-content: center;
+  line-height: 0.5em;
+  max-width: 100%;
+  min-width: 100px;
+  padding: 12px;
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
