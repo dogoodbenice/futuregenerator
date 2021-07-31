@@ -30,10 +30,6 @@ function setup() {
   resetPrediction();
 }
 
-function mousePressed() {
-  console.log(mouseX);
-}
-
 function centerCanvas() {
   let x = (windowWidth - width) / 2;
   let y = (windowHeight - height) / 2;
@@ -201,15 +197,6 @@ function backgroundshapes() {
     rotateX(random(1, 360) * 0.01);
     rotateY(random(1, 360) * 0.01);
     cone(random(10, 70));
-    pop();
-  }
-
-  //generates funks shapes for the left and right hand sides
-  for (var i = 0; i < 6; i++) {
-    normalMaterial();
-    push()
-    translate(random(0, 200), random(0, 800), random(-100, 100));
-    sphere(random(10, 100));
     pop();
   }
 }
