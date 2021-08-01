@@ -17,10 +17,10 @@ function preload() {
 
 function setup() {
   cnv = createCanvas(windowWidth, windowHeight, WEBGL);
-  centerCanvas();
-  rectMode(CENTER)
   // Move the canvas so it’s inside our <div id="sketch-holder">.
   cnv.parent('sketch-holder');
+  centerCanvas()
+  rectMode(CENTER)
   textFont(myFont);
   textSize(fontSize);
   textAlign(CENTER, CENTER);
@@ -31,6 +31,8 @@ function setup() {
 }
 
 function centerCanvas() {
+  //This moves the sketch to the very back
+  cnv.style('z-index','-1');
   let x = (windowWidth - width) / 2;
   let y = (windowHeight - height) / 2;
   cnv.position(x, y);
