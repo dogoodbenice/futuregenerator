@@ -7,7 +7,7 @@ let texspace = 250;
 //Our words to form some new generative sentences
 let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptops", "books", "pens", "pans", "pants", "phones", "chips", "comedians", "fishes", "cubes", "eggs", "aubergines", "light bulbs", "ladders", "pizzas", "sandwiches", "kebabs", "baked potatoes", "samosas", "biscuits", "apples", "avocadoes", "milkshakes", "cabbages", "carrots", "potatoes", "onions", "lemons", "bananas", "grapes", "peaches", "oranges", "boots", "slippers", "socks", "flip flops", "guitars", "pianos", "chickens", "ovens", "plants", "ballerinas", "pots","trains","footballs","stadiums","sandals"];
 let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoin","Litecoin","Dai","Filecoin","Stellar","Solana","VeChain"];
-let fiat = ["British Pounds","Canadian Dollars", "Euros"]
+let fiat = ["British Pounds","Canadian Dollars", "Euros", "US Dollars","Yen"]
 let planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune", "the Sun"]
 let feelings = ["hapiness","sadness","envy","hate","love","lust","content","bloated","anger"]
 
