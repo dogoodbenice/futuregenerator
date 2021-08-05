@@ -9,7 +9,7 @@ let pluralobjects = ["scarves", "ties", "watches", "gloves", "handbags", "laptop
 let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoin","Litecoin","Dai","Filecoin","Stellar","Solana","VeChain"];
 let fiat = ["British Pounds","Canadian Dollars", "Euros", "US Dollars","Yen"]
 let planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune", "the Sun"]
-let feelings = ["hapiness","sadness","envy","hate","love","lust","content","bloated","anger"]
+let feelings = ["hapiness","sadness","envy","hate","love","lust","content","bloated","anger","boredom","rage","serenity"]
 
 function preload() {
   myFont = loadFont('assets/Aileron-BlackItalic.otf');
