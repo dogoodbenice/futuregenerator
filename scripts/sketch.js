@@ -10,6 +10,7 @@ let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoi
 let fiat = ["British Pounds","Canadian Dollars", "Euros", "US Dollars","Yen"]
 let planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune", "the Sun"]
 let feelings = ["hapiness","sadness","envy","hate","love","lust","content","bloated","anger","boredom","rage","serenity","hunger","tiredness","thankfulness","creativity","anxiousness"]
+let weather = ["rainy","sunny","thundery","overcast","windy","hot","cold","humid"]
 
 function preload() {
   myFont = loadFont('assets/Aileron-BlackItalic.otf');
@@ -64,6 +65,13 @@ function wordCreator() {
 
 }
 
+//On this day in the the weather will be...and...
+function weatherPredictor() {
+  push()
+  prediction = text('On this day in ' + int(random(2021,5000)) + ' it will be ' + weather[Math.floor(Math.random() * weather.length)] + ' and ' +weather[Math.floor(Math.random() * weather.length)], texposX, texposY, texspace)
+  pop()
+}
+
 //In the future we will replace
 function ITFTWB() {
   push()
@@ -104,7 +112,7 @@ function predictionchooser() {
   fill('#1D00FF');
   rect(0,-10,400);
   pop()
-  let r = random(5);
+  let r = random(6);
   if (r < 1) {
     ITFTWB()
   } else if (r < 2) {
@@ -113,6 +121,8 @@ function predictionchooser() {
     CCV()
   } else if (r < 4) {
     futureobjects()
+  } else if (r < 5) {
+    weatherPredictor()
   } else {
     ITFTWWF()
   }
