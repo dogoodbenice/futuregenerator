@@ -11,6 +11,7 @@ let fiat = ["British Pounds","Canadian Dollars", "Euros", "US Dollars","Yen"]
 let planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune", "the Sun"]
 let feelings = ["hapiness","sadness","envy","hate","love","lust","content","bloated","anger","boredom","rage","serenity","hunger","tiredness","thankfulness","creativity","anxiousness"]
 let weather = ["rainy","sunny","thundery","overcast","windy","hot","cold","humid"]
+let createdword = []
 
 function preload() {
   myFont = loadFont('assets/Aileron-BlackItalic.otf');
@@ -62,6 +63,20 @@ function resetPrediction(){
 }
 
 function wordCreator() {
+  let vowels = ["a","e","i","o","u"]
+  let consonants = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Z']
+  let vowelamount = int(random(2,8))
+  let consonantamount = int(random(2,15))
+
+  for (var i = 0; i < vowelamount; i++) {
+    let selectedVowels = Math.floor(Math.random() * vowels.length)
+    append(createdword,selectedVowels);
+  }
+
+  for (var i = 0; i < consonantamount; i++) {
+    let selectedConsonants = Math.floor(Math.random() * consonants.length)
+    append(createdword,selectedConsonants);
+  }
 
 }
 
@@ -81,8 +96,9 @@ function ITFTWB() {
 
 //In the future word
 function ITFTW() {
+  //wordCreator()
   push()
-  prediction = text('There will be a new word ' + 'to mean ' + feelings[Math.floor(Math.random() * feelings.length)], texposX, texposY, texspace);
+  prediction = text('There will be a new word ' + createdword + 'to mean ' + feelings[Math.floor(Math.random() * feelings.length)], texposX, texposY, texspace);
   pop()
 }
 
