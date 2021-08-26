@@ -10,7 +10,7 @@ let cryptocurrencies = ["Bitcoin", "Ethereum", "Tether","Cardano","XRP","Dogecoi
 let fiat = ["British Pounds","Canadian Dollars", "Euros", "US Dollars","Yen"]
 let planets = ["Mercury","Venus","Earth","Mars","Jupiter","Saturn","Uranus","Neptune", "the Sun"]
 let feelings = ["hapiness","sadness","envy","hate","love","lust","content","bloated","anger","boredom","rage","serenity","hunger","tiredness","thankfulness","creativity","anxiousness"]
-let weather = ["rainy","sunny","thundery","overcast","windy","hot","cold","humid"]
+let weather = ["rainy","sunny","thundery","overcast","windy","hot","cold","humid","snowy","frosty","cloudy","icy"]
 let createdword = []
 
 function preload() {
